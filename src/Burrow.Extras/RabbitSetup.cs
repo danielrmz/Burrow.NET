@@ -83,6 +83,28 @@ namespace Burrow.Extras
             }
         }
 
+        public void DestroyQueue<T>(ExchangeSetupData exchange, QueueSetupData queue)
+        {
+            var conventions = _routeFinderFactory(_environment, exchange.ExchangeType);
+            var queueName = conventions.FindQueueName<T>(queue.SubscriptionName);
+            var exchangeName = conventions.FindExchangeName<T>();
+
+            using (var connection = _connectionFactory.CreateConnection()) {
+                using (var model = connection.CreateModel())
+                {
+                    // Delete Queue
+                    try
+                    {
+                        model.QueueDelete(queueName);
+                    }
+                    catch (Exception ex)
+                    {
+                        _watcher.Error(ex);
+                    }
+                }
+            }
+        }
+
         public void Destroy<T>(ExchangeSetupData exchange, QueueSetupData queue)
         {
             var conventions = _routeFinderFactory(_environment, exchange.ExchangeType);
