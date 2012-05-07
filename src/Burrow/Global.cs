@@ -4,6 +4,7 @@ namespace Burrow
 {
     public static class Global
     {
+        public static IRouteFinder DefaultRouteFinder = new DefaultRouteFinder();
         public static ISerializer DefaultSerializer = new JavaScriptSerializer();
         public static IRabbitWatcher DefaultWatcher = new ConsoleWatcher();
         public static ICorrelationIdGenerator DefaultCorrelationIdGenerator = new SimpleCorrelationIdGenerator();

@@ -58,7 +58,7 @@ namespace Burrow
 
             return new RabbitTunnel(consumerManager, 
                                     watcher, 
-                                    new DefaultRouteFinder(), 
+                                    Global.DefaultRouteFinder, 
                                     durableConnection,
                                     Global.DefaultSerializer,
                                     Global.DefaultCorrelationIdGenerator,

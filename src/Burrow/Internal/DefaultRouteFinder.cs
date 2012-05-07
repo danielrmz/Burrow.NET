@@ -1,7 +1,7 @@
 ﻿
 namespace Burrow.Internal
 {
-    internal class DefaultRouteFinder : IRouteFinder
+    public class DefaultRouteFinder : IRouteFinder
     {
         public string FindExchangeName<T>()
         {
