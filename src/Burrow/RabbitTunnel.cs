@@ -143,7 +143,7 @@ namespace Burrow
             }
         }
 
-        private void CreatePublishChannel()
+        protected virtual void CreatePublishChannel()
         {
             if (_dedicatedPublishingChannel == null || !_dedicatedPublishingChannel.IsOpen)
             {
